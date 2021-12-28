@@ -51,12 +51,19 @@ def validate_data(values):
     Called by get_sales_data()
     """
     try:
+        # trying to convert the values to ints
+        [int(value) for value in values]
+        # specific error message for if length is wrong
         if len(values) != 6:
             raise ValueError(
                 f"Exactly 6 values required, you provided {len(values)}"
             )
+    # where e is the error message
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.\n")
+
+    values = [int(value) for value in values]
+    print(values)
 
 
 get_sales_data()
