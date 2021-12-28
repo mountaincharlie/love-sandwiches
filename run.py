@@ -1,3 +1,5 @@
+""" Love sandwhiches walkthrough project """
+
 # imports
 import gspread
 from google.oauth2.service_account import Credentials
@@ -24,4 +26,18 @@ sales = SHEET.worksheet('sales')
 # getting all the values from the sales worksheet
 data = sales.get_all_values()
 
-print(data)
+
+# getting the sales data
+def get_sales_data():
+    """
+    Get sales figures input from the user
+    """
+    print("Please enter sales data from the last market.")
+    print("Data should be six numbers, separated by commas.")
+    print("Example: 10,20,30,40,50,60")
+
+    data_str = input("Enter you data here: ")
+    print(f"The data provided is {data_str}")
+
+
+get_sales_data()
