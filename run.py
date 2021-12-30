@@ -112,6 +112,16 @@ def calculate_surplus_data(sales_row):
     return surplus_data
 
 
+def update_surplus_worksheet(data):
+    """
+    Update surplus worksheet, add new row with the list data provided.
+    """
+    print("Updating surplus worksheet... \n")
+    # accessing the surplus worksheet with the worksheet method and gspread
+    surplus_worksheet = SHEET.worksheet("surplus")
+    # adding the new row of data
+    surplus_worksheet.append_row(data)
+    print("Surplus worksheet updated. \n")
 
 
 def main():
@@ -122,6 +132,7 @@ def main():
     sales_data = [int(num) for num in data]
     update_sales_worksheet(sales_data)
     row_surplus_data = calculate_surplus_data(sales_data)
+    update_surplus_worksheet(row_surplus_data)
 
 
 print("Welcome to Love Sandwiches Data Automation")
